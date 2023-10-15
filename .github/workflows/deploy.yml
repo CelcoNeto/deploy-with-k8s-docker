@@ -13,7 +13,7 @@ jobs:
     name: Checkout
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: 18.x
@@ -25,6 +25,9 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Login Dockerhub
         uses: docker/login-action@v3
         with:
