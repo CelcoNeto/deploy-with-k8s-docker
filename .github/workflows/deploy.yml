@@ -25,15 +25,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Login Dockerhub
-        uses: docker/login-action@v1
+        uses: docker/login-action@v3
         with:
-          registry: docker.io
           user: celconeto
           password: Ccr#2k222
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-actions@v3
+
       - name: Build and push image to Docker.io
-        uses: docker/build-push-actions@v2
+        uses: docker/build-push-actions@v5
         with:
           context: .
           file: ${{ env.DOCKERFILE_PATH }}
           push: true
-          tags: 1.0.5
+          tags: celconet/first-deploy-github-actions:1.0.5
