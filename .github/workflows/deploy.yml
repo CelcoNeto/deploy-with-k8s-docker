@@ -55,4 +55,4 @@ jobs:
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
         with:
-          args: kubectl apply -f ./infra/my-app-deployment.yaml
+          args: apply -f ./infra/my-app-deployment.yaml
