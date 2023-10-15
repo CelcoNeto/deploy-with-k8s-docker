@@ -45,3 +45,12 @@ jobs:
           file: ${{ env.DOCKERFILE_PATH }}
           push: true
           tags: celconeto/first-deploy-github-actions:1.0.5
+
+  publish-kubernetes:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup kubectl
+        uses: actions-hub/kubectl@master
+        with:
+          args: kubectl apply -f ./infra/my-app-deployment.yaml
