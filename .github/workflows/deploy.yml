@@ -34,9 +34,6 @@ jobs:
           user: celconeto
           password: Ccr#2k222
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-actions@v3
-
       - name: Build and push image to Docker.io
         uses: docker/build-push-actions@v5
         with:
