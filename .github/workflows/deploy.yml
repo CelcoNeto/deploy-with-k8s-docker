@@ -43,4 +43,4 @@ jobs:
           context: .
           file: ${{ env.DOCKERFILE_PATH }}
           push: true
-          tags: celconet/first-deploy-github-actions:1.0.5
+          tags: celconeto/first-deploy-github-actions:1.0.5
