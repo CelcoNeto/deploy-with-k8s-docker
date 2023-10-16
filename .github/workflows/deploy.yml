@@ -62,6 +62,6 @@ jobs:
           kubectl wait --for=condition=Ready pods --all --namespace kube-system
           kubectl cluster-info
           kubectl get pods -n kube-system
-
+          ls -a
       - name: Deploy App(Deployment)
-        run: kubectl apply -f infra/my-app-deployment.yaml
+        run: kubectl apply -f ./infra/my-app-deployment.yaml
