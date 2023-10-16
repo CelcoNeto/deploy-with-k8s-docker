@@ -51,8 +51,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup kubectl
-        uses: actions-hub/kubectl@master
-        env:
-          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+        uses: azure/k8s-set-context@v1
         with:
-          args: get pods
+          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+
+      - name: Deploy
+        run: |
+          kubectl apply -f infra/my-app-deployment.yaml
