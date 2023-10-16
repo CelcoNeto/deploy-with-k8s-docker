@@ -51,7 +51,7 @@ jobs:
     needs: build-and-push
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy Ap(Deployment)
+      - name: Install KinD
         run: |
           curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
           chmod +x kubectl
@@ -62,3 +62,6 @@ jobs:
           kubectl wait --for=condition=Ready pods --all --namespace kube-system
           kubectl cluster-info
           kubectl get pods -n kube-system
+
+      - name: Deploy App(Deployment)
+        run: kubectl apply infra/my-app-deployment.yaml
