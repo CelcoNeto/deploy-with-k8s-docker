@@ -50,7 +50,6 @@ jobs:
     needs: build-and-push
     runs-on: ubuntu-latest
     steps:
-      - uses: engineerd/setup-kind@v0.5.0
       - name: Testing cluster
         run: |
           mkdir ${HOME}/.kube
