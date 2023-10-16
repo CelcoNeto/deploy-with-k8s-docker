@@ -61,7 +61,10 @@ jobs:
           export KUBECONFIG="$(kind get kubeconfig-path)"
           kubectl wait --for=condition=Ready pods --all --namespace kube-system
           kubectl cluster-info
-          kubectl get pods -n kube-system
-          ls -a
+          kubectl get pods
+
+      - name: List all files
+        run: ls -a
+
       - name: Deploy App(Deployment)
         run: kubectl apply -f ./infra/my-app-deployment.yaml
