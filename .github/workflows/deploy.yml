@@ -64,4 +64,4 @@ jobs:
           kubectl get pods -n kube-system
 
       - name: Deploy App(Deployment)
-        run: kubectl apply infra/my-app-deployment.yaml
+        run: kubectl apply ./infra/my-app-deployment.yaml
