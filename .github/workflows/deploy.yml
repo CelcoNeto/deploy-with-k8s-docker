@@ -57,4 +57,4 @@ jobs:
 
       - name: Deploy
         run: |
-          kubectl apply -f infra/my-app-deployment.yaml
+          kubectl apply -f ./infra/my-app-deployment.yaml
