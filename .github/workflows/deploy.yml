@@ -53,4 +53,9 @@ jobs:
       - uses: engineerd/setup-kind@v0.5.0
       - name: Testing cluster
         run: |
-          kubectl cluster-info
+          mkdir ${HOME}/.kube
+          echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
+          cat ${HOME}/.kube/config
+
+      - name: Kubectl apply
+        run: kubectl apply infra/my-app-deployment.yaml
