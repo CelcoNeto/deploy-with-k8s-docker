@@ -53,5 +53,7 @@ jobs:
     steps:
       - name: Deploy Ap(Deployment)
         uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: ${{ env.KUBE_CONFIG }}
         with:
           args: apply -f infra/my-app-deployment.yaml
